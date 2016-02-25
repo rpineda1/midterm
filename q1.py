@@ -5,4 +5,12 @@
 #   Example 4: if your balance is 8, then your program should return 8. 
 
 def computeMinimumPayment( balance ):
+    if balance * 0.021 > 10: #this helps tell the program that when the user has a balance times 0.021% and it is less than 10 then the payment should equal to the balance times 0.021.
+        payment = balance * 0.021
+    else: #this tells the program that if the payment equals to 10 and if the payment is equal to the balance due the the program needs to retun payment.
+        payment = 10 
+    if balance < 10:
+        payment = balance
+    return payment
+
     #TODO write code inside this function that achieves the functionality described above

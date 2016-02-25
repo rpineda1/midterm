@@ -22,6 +22,12 @@ def playGame():
         
 
 def askUserChoice():
+    print('How many sticks do you want to pick up? (1-4)')# this line tells the user that they have between 1-4 sticks to pick up 
+    userChoise = int(input()) # this is the users input
+    if userChoise in range(1,5):# this if statment tells the program that if the the input chosen by the user is between 1-4 then to contine the game.
+        return userChoise
+    else:# this else statment in the other hand tells the program that if the user did not choose a number between 1-4 then an error statment will display.
+        print('sorry your answer is invalid, please choose an number between 1-4 and try again!')
     # TODO: write code in this functiont that:
     # 1. Asks the user to enter their input (between 1 and 4)
     # 2. Checks that the user's input is valid. If it's not valid (if it's not between 1 and 4), then ask the user to re-enter their input.
@@ -29,7 +35,13 @@ def askUserChoice():
 
 
 def subtractSticks( number ):
-    global sticks 
+    global sticks # this puts sticks not only in subtractSticks when called but also in the global scopes to be used throught the game.
+    sticks -= number
+
+    if sticks <= 0: # this if statment tells the program that if the sticks picked up are less than or equal to zero then it will return as a True statment or else as a False.
+        return True
+    else:
+        return False
     
     # TODO: write code inside this function that:
     # 1. subtracts the parameter `number` from the global variable `sticks`
@@ -38,3 +50,5 @@ def subtractSticks( number ):
     
 def determineComputerChoice():
     # TODO: write code inside this function that returns an integer between 1 and 4, random chosen by the computer
+    r = random.randint(1,4) # this tells the program that the computer will pick a random number between 1-4 and then returns.
+    return r
